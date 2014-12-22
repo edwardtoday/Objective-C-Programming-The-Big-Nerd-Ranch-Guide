@@ -13,11 +13,20 @@ int main(int argc, const char *argv[]) {
   @autoreleasepool {
     BNRLogger *logger = [[BNRLogger alloc] init];
 
+    //    [[NSNotificationCenter defaultCenter]
+    //        addObserver:logger
+    //           selector:@selector(zoneChange:)
+    //               name:NSSystemTimeZoneDidChangeNotification
+    //             object:nil];
+
+    // Chapter 28 Challenge 2: using a block with NSNotificationCenter
     [[NSNotificationCenter defaultCenter]
-        addObserver:logger
-           selector:@selector(zoneChange:)
-               name:NSSystemTimeZoneDidChangeNotification
-             object:nil];
+        addObserverForName:NSSystemTimeZoneDidChangeNotification
+                    object:nil
+                     queue:nil
+                usingBlock:^(NSNotification *n) {
+                    NSLog(@"System timezone changed: %@", n);
+                }];
 
     NSURL *url = [NSURL
         URLWithString:@"http://www.gutenberg.org/cache/epub/205/pg205.txt"];
