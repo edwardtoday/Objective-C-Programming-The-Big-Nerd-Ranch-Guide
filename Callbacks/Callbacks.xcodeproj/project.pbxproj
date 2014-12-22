@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC4F85DB1A483255005A8CFF /* BNRObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = FC4F85DA1A483255005A8CFF /* BNRObserver.m */; };
 		FCA318621A44FFA100F7F2C6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA318611A44FFA100F7F2C6 /* main.m */; };
 		FCA3186A1A45004C00F7F2C6 /* BNRLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA318691A45004C00F7F2C6 /* BNRLogger.m */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FC4F85D91A483255005A8CFF /* BNRObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRObserver.h; sourceTree = "<group>"; };
+		FC4F85DA1A483255005A8CFF /* BNRObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRObserver.m; sourceTree = "<group>"; };
 		FCA3185E1A44FFA100F7F2C6 /* Callbacks */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Callbacks; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCA318611A44FFA100F7F2C6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FCA318681A45004C00F7F2C6 /* BNRLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRLogger.h; sourceTree = "<group>"; };
@@ -61,6 +64,8 @@
 			isa = PBXGroup;
 			children = (
 				FCA318611A44FFA100F7F2C6 /* main.m */,
+				FC4F85D91A483255005A8CFF /* BNRObserver.h */,
+				FC4F85DA1A483255005A8CFF /* BNRObserver.m */,
 				FCA318681A45004C00F7F2C6 /* BNRLogger.h */,
 				FCA318691A45004C00F7F2C6 /* BNRLogger.m */,
 			);
@@ -124,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FCA3186A1A45004C00F7F2C6 /* BNRLogger.m in Sources */,
+				FC4F85DB1A483255005A8CFF /* BNRObserver.m in Sources */,
 				FCA318621A44FFA100F7F2C6 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -238,6 +244,7 @@
 				FCA318671A44FFA100F7F2C6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

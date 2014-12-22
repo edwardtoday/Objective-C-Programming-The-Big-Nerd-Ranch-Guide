@@ -21,9 +21,16 @@
   return [dateFormatter stringFromDate:self.lastTime];
 }
 
++ (NSSet *)keyPathsForValuesAffectingLastTimeString {
+  return [NSSet setWithObject:@"lastTime"];
+}
+
 - (void)updateLastTime:(NSTimer *)t {
   NSDate *now = [NSDate date];
-  [self setLastTime:now];
+  //  [self setLastTime:now];
+  [self willChangeValueForKey:@"lastTime"];
+  _lastTime = now;
+  [self didChangeValueForKey:@"lastTime"];
   NSLog(@"Just set time to %@", self.lastTimeString);
 }
 
