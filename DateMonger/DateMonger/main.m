@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DateMonger.h"
 
-int main(int argc, const char * argv[]) {
+int main(int argc, const char *argv[]) {
   @autoreleasepool {
-      // insert code here...
-      NSLog(@"Hello, World!");
+    NSDate *date = [NSDate bnrDateMongerWithYear:1988 month:3 day:17];
+    NSLog(@"The date created is %@",
+          [date descriptionWithLocale:[NSLocale currentLocale]]);
   }
-    return 0;
+  return 0;
 }
