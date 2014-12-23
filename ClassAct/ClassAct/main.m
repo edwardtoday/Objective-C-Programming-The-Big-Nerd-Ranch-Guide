@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <objc/runtime.h>
+#import "BNRTowel.h"
 
 NSArray *BNRHierarchyForClass(Class cls) {
   // Declare an array to hold the list of this class and all its superclasses,
@@ -37,8 +38,29 @@ NSArray *BNRMethodsForClass(Class cls) {
   return methodArray;
 }
 
+NSArray *BNRIvarsForClass(Class cls) {
+  unsigned int ivarCount = 0;
+  Ivar *ivarList = class_copyIvarList(cls, &ivarCount);
+  NSMutableArray *ivarArray = [NSMutableArray array];
+  for (int iv = 0; iv < ivarCount; iv++) {
+    // Get the current Ivar
+    Ivar currentIvar = ivarList[iv];
+    // Add its name to the array
+    [ivarArray
+        addObject:[NSString stringWithUTF8String:ivar_getName(currentIvar)]];
+  }
+  return ivarArray;
+}
+
 int main(int argc, const char *argv[]) {
   @autoreleasepool {
+    // You don't have an object to do the observing, but send the addObserver:
+    // message anyway, to kick off the runtime updates
+    BNRTowel *myTowel = [BNRTowel new];
+    [myTowel addObserver:nil
+              forKeyPath:@"location"
+                 options:NSKeyValueObservingOptionNew
+                 context:NULL];
 
     // Create an an array of dictionaries, where each dictionary will end up
     // holding the class name, hierarchy, and method list for a given class
@@ -63,13 +85,21 @@ int main(int argc, const char *argv[]) {
 
       NSArray *hierarchy = BNRHierarchyForClass(currentClass);
       NSArray *methods = BNRMethodsForClass(currentClass);
+      NSArray *ivars = BNRIvarsForClass(currentClass);
       NSDictionary *classInfoDict = @{
         @"classname" : className,
         @"hierarchy" : hierarchy,
-        @"methods" : methods
+        @"methods" : methods,
+        @"ivars" : ivars
       };
       [runtimeClassesInfo addObject:classInfoDict];
     }
+
+    // Added this line to avoid an uncaught exception
+    // 'NSInternalInconsistencyException', reason: 'An instance of class
+    // BNRTowel was deallocated while key value observers were still registered
+    // with it.
+    [myTowel removeObserver:nil forKeyPath:@"location"];
 
     // We're done with the class list buffer, so free it
     free(classList);

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FCBF79991A48F6F200AF6650 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBF79981A48F6F200AF6650 /* main.m */; };
+		FCBF79A11A48FB4C00AF6650 /* BNRTowel.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBF79A01A48FB4C00AF6650 /* BNRTowel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		FCBF79951A48F6F200AF6650 /* ClassAct */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ClassAct; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCBF79981A48F6F200AF6650 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FCBF799F1A48FB4C00AF6650 /* BNRTowel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRTowel.h; sourceTree = "<group>"; };
+		FCBF79A01A48FB4C00AF6650 /* BNRTowel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRTowel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +44,8 @@
 		FCBF798C1A48F6F200AF6650 = {
 			isa = PBXGroup;
 			children = (
+				FCBF799F1A48FB4C00AF6650 /* BNRTowel.h */,
+				FCBF79A01A48FB4C00AF6650 /* BNRTowel.m */,
 				FCBF79971A48F6F200AF6650 /* ClassAct */,
 				FCBF79961A48F6F200AF6650 /* Products */,
 			);
@@ -118,6 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FCBF79A11A48FB4C00AF6650 /* BNRTowel.m in Sources */,
 				FCBF79991A48F6F200AF6650 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
